@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Dashboard - Kua Gerih')
+@section('title', 'Dashboard - LPM Ibnu Rusyd')
 @section('content')
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
      <div class="bg-white rounded-lg shadow p-4 sm:p-6">
