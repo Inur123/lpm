@@ -7,6 +7,19 @@
     <title>Register Admin - LPM Suara Kampus</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('images/logo.jpeg') }}" type="image/x-icon">
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            // Tampilkan notif kecil di bawah
+            let notif = document.getElementById('rightClickNotif');
+            notif.classList.remove('hidden');
+            notif.classList.add('flex');
+            setTimeout(() => {
+                notif.classList.add('hidden');
+                notif.classList.remove('flex');
+            }, 2000);
+        });
+    </script>
 </head>
 
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
@@ -110,6 +123,15 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div id="rightClickNotif"
+        class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded shadow-lg text-sm z-50 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M18.364 5.636l-1.414 1.414A9 9 0 105.636 18.364l1.414-1.414A7 7 0 1118.364 5.636z" />
+        </svg>
+        Klik kanan dinonaktifkan di halaman ini.
     </div>
 
     <script>

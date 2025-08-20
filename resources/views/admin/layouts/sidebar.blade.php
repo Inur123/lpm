@@ -57,12 +57,14 @@
                       <li>
                           <a href="kategori.html"
                               class="flex items-center px-4 py-2 text-sm rounded-lg font-medium text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
-                              <!-- Icon Folder -->
+
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                   stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
                                   <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M3 7a2 2 0 012-2h5l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
+                                      d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
                               </svg>
+
                               Category
                           </a>
                       </li>
@@ -85,16 +87,18 @@
 
               <!-- Arsip Surat -->
               <li>
-                  <a href="arsip-surat.html"
-                      class="flex items-center px-4 py-2 rounded-lg font-medium text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+                  <a href="{{ route('arsip_surat.index') }}"
+                      class="flex items-center px-4 py-2 rounded-lg font-medium
+       {{ request()->routeIs('arsip_surat*') ? 'text-primary bg-primary/10' : 'text-gray-600 hover:bg-gray-100' }}">
                       <svg class="w-5 h-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round"
                               d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
                       </svg>
-                      Arsip Surat
+                      <span>Arsip Surat</span>
                   </a>
               </li>
+
               <!-- Pengaturan Dropdown -->
 
               <li>
@@ -124,8 +128,9 @@
                           </svg>
                           Pengaturan
                       </div>
-                      <svg id="pengaturan-arrow" class="w-4 h-4 transition-transform" xmlns="http://www.w3.org/2000/svg"
-                          fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <svg id="pengaturan-arrow" class="w-4 h-4 transition-transform"
+                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
                   </button>

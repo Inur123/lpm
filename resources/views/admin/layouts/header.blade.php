@@ -17,31 +17,30 @@
       </div>
   </header>
   <script>
-    function updateDateTime() {
-        const now = new Date();
+      function updateDateTime() {
+          const now = new Date();
 
-        // format tanggal
-        const tanggal = now.toLocaleDateString("id-ID", {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        });
+          // format tanggal
+          const tanggal = now.toLocaleDateString("id-ID", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric"
+          });
 
-        // format jam (HH:MM:SS)
-        const jam = now.toLocaleTimeString("id-ID", {
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit"
-        });
+          // format jam (HH:MM:SS)
+          const jam = now.toLocaleTimeString("id-ID", {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit"
+          });
 
-        // gabungkan
-        document.getElementById("current-date").textContent = `${tanggal} | ${jam}`;
-    }
+          // gabungkan
+          document.getElementById("current-date").textContent = `${tanggal} | ${jam}`;
+      }
 
-    // update setiap detik
-    setInterval(updateDateTime, 1000);
-    // jalankan sekali saat load
-    updateDateTime();
-</script>
-
+      // update setiap detik
+      setInterval(updateDateTime, 1000);
+      // jalankan sekali saat load
+      updateDateTime();
+  </script>

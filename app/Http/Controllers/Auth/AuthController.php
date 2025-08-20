@@ -10,7 +10,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // ===== LOGIN =====
+
     public function showLogin()
     {
         return view('auth.login');
@@ -33,7 +33,6 @@ class AuthController extends Controller
         return back()->withErrors(['email' => 'Email atau password salah.']);
     }
 
-    // ===== REGISTER =====
     public function showRegister()
     {
         return view('auth.register');
@@ -57,8 +56,6 @@ class AuthController extends Controller
 
         return redirect('/login')->with('success', 'Registrasi berhasil, selamat datang!');
     }
-
-    // ===== LOGOUT =====
     public function logout(Request $request)
     {
         Auth::logout();

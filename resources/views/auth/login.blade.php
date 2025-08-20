@@ -7,11 +7,23 @@
     <title>Login Admin - LPM Suara Kampus</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('images/logo.jpeg') }}" type="image/x-icon">
-
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            // Tampilkan notif kecil di bawah
+            let notif = document.getElementById('rightClickNotif');
+            notif.classList.remove('hidden');
+            notif.classList.add('flex');
+            setTimeout(() => {
+                notif.classList.add('hidden');
+                notif.classList.remove('flex');
+            }, 2000);
+        });
+    </script>
 </head>
 
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
-  @include('admin.layouts.notification')
+    @include('admin.layouts.notification')
 
     <!-- Card Container -->
     <div
@@ -33,56 +45,66 @@
 
         <!-- Card Body -->
         <div class="p-8">
-    <form method="POST" action="{{ url('/login') }}" class="space-y-6">
-        @csrf
+            <form method="POST" action="{{ url('/login') }}" class="space-y-6">
+                @csrf
 
-        <!-- Email -->
-        <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input id="email" name="email" type="email" required
-                class="w-full px-4 py-3 border border-gray-200 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200"
-                placeholder="Masukkan email" value="{{ old('email') }}">
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input id="email" name="email" type="email" required
+                        class="w-full px-4 py-3 border border-gray-200 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200"
+                        placeholder="Masukkan email" value="{{ old('email') }}">
 
-            <!-- error email -->
-            @error('email')
-                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-            @enderror
+                    <!-- error email -->
+                    @error('email')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <div class="relative">
+                        <input id="password" name="password" type="password" required
+                            class="w-full px-4 py-3 border border-gray-200 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200"
+                            placeholder="Masukkan password">
+                        <button type="button" onclick="togglePassword()"
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                            <svg id="eye-icon" class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- error password -->
+                    @error('password')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <!-- Tombol -->
+                <div>
+                    <button type="submit"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer">
+                        Masuk
+                    </button>
+                </div>
+            </form>
         </div>
 
-        <!-- Password -->
-        <div>
-            <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-            <div class="relative">
-                <input id="password" name="password" type="password" required
-                    class="w-full px-4 py-3 border border-gray-200 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition duration-200"
-                    placeholder="Masukkan password">
-                <button type="button" onclick="togglePassword()" class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-                    <svg id="eye-icon" class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- error password -->
-            @error('password')
-                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <!-- Tombol -->
-        <div>
-            <button type="submit"
-                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer">
-                Masuk
-            </button>
-        </div>
-    </form>
-</div>
-
+    </div>
+    <div id="rightClickNotif"
+        class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-4 py-2 rounded shadow-lg text-sm z-50 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M18.364 5.636l-1.414 1.414A9 9 0 105.636 18.364l1.414-1.414A7 7 0 1118.364 5.636z" />
+        </svg>
+        Klik kanan dinonaktifkan di halaman ini.
     </div>
 
     <script>
@@ -99,7 +121,6 @@
                     '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />';
             }
         }
-
     </script>
 </body>
 

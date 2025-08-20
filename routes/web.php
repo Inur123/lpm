@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ArsipSuratController;
 use App\Http\Controllers\Admin\Setting\ProfileController;
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -16,10 +17,10 @@ Route::post('/register', [AuthController::class, 'register']);
 // Hanya bisa diakses setelah login
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-     Route::prefix('admin/setting')->group(function () {
+    Route::resource('arsip_surat', ArsipSuratController::class);
+    Route::prefix('admin/setting')->group(function () {
         Route::get('profile', [ProfileController::class, 'edit'])->name('admin.setting.profile.edit');
-      Route::put('profile', [ProfileController::class, 'update'])->name('admin.setting.profile.update');
-
+        Route::put('profile', [ProfileController::class, 'update'])->name('admin.setting.profile.update');
     });
 });
 

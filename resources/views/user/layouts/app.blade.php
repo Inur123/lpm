@@ -13,6 +13,7 @@
         }
     </style>
 </head>
+
 <body class="bg-white text-gray-900">
     @include('user.layouts.navbar')
     @yield('content')

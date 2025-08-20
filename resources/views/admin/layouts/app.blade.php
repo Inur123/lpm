@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-gray-50">
-     @include('admin.layouts.notification')
+    @include('admin.layouts.notification')
     <div class="flex h-screen">
         <!-- Sidebar -->
         @include('admin.layouts.sidebar')
