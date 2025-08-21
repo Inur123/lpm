@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\BerandaController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ArsipSuratController;
+use App\Http\Controllers\Admin\Posts\PostController;
 use App\Http\Controllers\Admin\Posts\CategoryController;
 use App\Http\Controllers\Admin\Setting\ProfileController;
 
@@ -20,6 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('arsip_surat', ArsipSuratController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('posts', PostController::class);
+    Route::delete('posts/images/{id}', [PostController::class, 'deleteImage'])->name('posts.images.delete');
+
+
     Route::prefix('admin/setting')->group(function () {
         Route::get('profile', [ProfileController::class, 'edit'])->name('admin.setting.profile.edit');
         Route::put('profile', [ProfileController::class, 'update'])->name('admin.setting.profile.update');
