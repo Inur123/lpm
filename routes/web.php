@@ -19,6 +19,7 @@ Route::post('/register', [AuthController::class, 'register']);
 // Hanya bisa diakses setelah login
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/admin/views-stats', [DashboardController::class, 'viewsStats'])->name('admin.views.stats');
     Route::resource('arsip_surat', ArsipSuratController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('posts', PostController::class);
