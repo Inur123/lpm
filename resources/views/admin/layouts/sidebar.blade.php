@@ -2,7 +2,7 @@
       class="fixed inset-y-0 left-0 z-50 w-64 bg-white text-primary flex flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:static md:w-64">
       <!-- Logo -->
       <div class="flex items-center border-b border-gray-200 p-2 md:p-4 border-r border-primary-200">
-          <img class="h-10 w-10 mr-3 hidden md:block" src="https://halosuko.zainur.my.id/images/logo-desa.png"
+          <img class="h-10 w-10 mr-3 hidden md:block rounded-full" src="{{ asset('images/logo.jpeg') }}"
               alt="Logo Desa" />
           <div>
               <h1 class="text-lg font-bold text-primary">LPM</h1>
@@ -55,8 +55,9 @@
                   <ul id="berita-dropdown" class="hidden ml-8 mt-2 space-y-1">
                       <!-- Category -->
                       <li>
-                          <a href="kategori.html"
-                              class="flex items-center px-4 py-2 text-sm rounded-lg font-medium text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+                          <a href="{{ route('categories.index') }}"
+                              class="flex items-center px-4 py-2 text-sm rounded-lg font-medium
+           {{ request()->routeIs('categories.*') ? 'text-primary bg-primary/10' : 'text-gray-600 hover:text-primary hover:bg-gray-50' }}">
 
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                   stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
