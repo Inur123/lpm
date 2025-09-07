@@ -28,7 +28,7 @@
     <section class="pt-16 min-h-screen bg-gradient-to-br from-primary to-slate-800 text-white flex items-center">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
             <div class="mb-8">
-                <h1 class="text-9xl md:text-[12rem] font-bold text-accent opacity-20">404</h1>
+                <h1 class="text-9xl md:text-[12rem] font-bold text-accent opacity-50">404</h1>
             </div>
             <div class="mb-8">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">Halaman Tidak Ditemukan</h2>

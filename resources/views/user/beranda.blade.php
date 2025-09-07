@@ -1,85 +1,90 @@
 @extends('user.layouts.app')
-@section('title', 'Beranda - LPM Ibnu Rusyd')
+@section('title', 'Beranda - LPM Ibnu Rusyd STAIM Magetan')
 @section('content')
     <!-- Hero Section -->
-    <section id="home" class="pt-16 bg-gradient-to-br from-primary to-slate-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    Suara Mahasiswa, <br /><span class="text-accent">Berita Terpercaya</span>
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-                    Lembaga Pers Mahasiswa yang berkomitmen menyajikan informasi
-                    berkualitas dan menjadi wadah kreativitas jurnalistik mahasiswa
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#articles"
-                        class="bg-accent hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">Baca
-                        Artikel Terbaru</a>
-                    <a href="#about"
-                        class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-semibold transition-colors">Pelajari
-                        Lebih Lanjut</a>
-                </div>
+    <section id="home" class="pt-16 text-white relative">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="{{ asset('images/foto-3.jpeg') }}" alt="LPM Ibnu Rusyd STAIM Magetan" class="w-full h-full object-cover">
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/10"></div>
+
+        </div>
+
+        <!-- Content -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Suara Mahasiswa STAIM Magetan, <br /><span class="text-accent">Berita Terpercaya</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+                Lembaga Pers Mahasiswa (LPM) Ibnu Rusyd STAIM Magetan yang berkomitmen menyajikan informasi
+                berkualitas dan menjadi wadah kreativitas jurnalistik mahasiswa kampus
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#articles"
+                    class="bg-accent hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">Baca
+                    Artikel Terbaru</a>
+                <a href="#about"
+                    class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-semibold transition-colors">Pelajari
+                    Lebih Lanjut</a>
             </div>
         </div>
     </section>
+
+
+
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                    Tentang LPM Suara Kampus
+                    Tentang LPM Ibnu Rusyd STAIM Magetan
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Organisasi mahasiswa yang berfokus pada pengembangan jurnalistik dan
-                    penyebaran informasi berkualitas di lingkungan kampus
+                    LPM Ibnu Rusyd dikenal sebagal Lembaga Pers Mahasiswa yang menjadi salah satu Unit Kegiatan Mahasiswa
+                    (UKM) di Sekolah Tinggi Agama Islam Ma'arif (STAIM) Magetan. Lembaga ini memiliki fokus utama pada dunla
+                    Jurnalistik dan penerbitan, di mana la berfungsi sebagal wadah bagi para dan mahasiswa untuk menyalurkan
+                    mengasah minat serta bakat mereka di bidang tersebut. Melalui berbagal keglatan, LPM Ibnu Rusyd berperan
+                    aktif dalam menciptakan ekosistem akademik yang informatif dan edukatif di lingkungan kampus.
                 </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Jurnalistik Berkualitas -->
                 <div class="text-center p-6 bg-white rounded-lg shadow-md">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                            </path>
-                        </svg>
+                        <i class="fas fa-pen-nib text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Jurnalistik Berkualitas</h3>
                     <p class="text-gray-600">
-                        Menghasilkan karya jurnalistik yang objektif, akurat, dan
-                        bermanfaat bagi komunitas kampus
+                        Menghasilkan karya jurnalistik objektif, akurat, dan bermanfaat bagi komunitas STAIM Magetan
                     </p>
                 </div>
+
+                <!-- Pengembangan SDM -->
                 <div class="text-center p-6 bg-white rounded-lg shadow-md">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
+                        <i class="fas fa-users-cog text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Pengembangan SDM</h3>
                     <p class="text-gray-600">
-                        Membina dan mengembangkan kemampuan jurnalistik mahasiswa melalui
-                        pelatihan dan praktik
+                        Membina dan mengembangkan kemampuan jurnalistik mahasiswa STAIM Magetan melalui pelatihan dan
+                        praktik
                     </p>
                 </div>
+
+                <!-- Media Informasi -->
                 <div class="text-center p-6 bg-white rounded-lg shadow-md">
                     <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z">
-                            </path>
-                        </svg>
+                        <i class="fas fa-broadcast-tower text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Media Informasi</h3>
                     <p class="text-gray-600">
-                        Menjadi sumber informasi terpercaya tentang kegiatan dan
-                        perkembangan di lingkungan kampus
+                        Menjadi sumber informasi terpercaya tentang kegiatan dan perkembangan di STAIM Magetan
                     </p>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -148,63 +153,37 @@
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <img src="/images/ino.png" alt="Artikel 1" class="w-full h-48 object-cover" />
-                    <div class="p-6">
-                        <span class="text-sm text-accent font-semibold">KAMPUS</span>
-                        <h3 class="text-xl font-semibold mt-2 mb-3">
-                            Mahasiswa Raih Prestasi di Kompetisi Nasional
-                        </h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Tim mahasiswa berhasil meraih juara pertama dalam kompetisi
-                            inovasi teknologi tingkat nasional...
-                        </p>
-                        <div class="flex items-center text-sm text-gray-500">
-                            <span>15 Januari 2024</span>
-                            <span class="mx-2">•</span>
-                            <span>Admin LPM</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Artikel 2" class="w-full h-48 object-cover" />
-                    <div class="p-6">
-                        <span class="text-sm text-accent font-semibold">KEGIATAN</span>
-                        <h3 class="text-xl font-semibold mt-2 mb-3">
-                            Seminar Nasional Teknologi dan Inovasi
-                        </h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Fakultas Teknik mengadakan seminar nasional dengan menghadirkan
-                            pembicara dari berbagai universitas...
-                        </p>
-                        <div class="flex items-center text-sm text-gray-500">
-                            <span>12 Januari 2024</span>
-                            <span class="mx-2">•</span>
-                            <span>Tim Redaksi</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Artikel 3" class="w-full h-48 object-cover" />
-                    <div class="p-6">
-                        <span class="text-sm text-accent font-semibold">PENELITIAN</span>
-                        <h3 class="text-xl font-semibold mt-2 mb-3">
-                            Penelitian Dosen Dipublikasi di Jurnal Internasional
-                        </h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Hasil penelitian tentang energi terbarukan berhasil
-                            dipublikasikan di jurnal internasional bereputasi...
-                        </p>
-                        <div class="flex items-center text-sm text-gray-500">
-                            <span>10 Januari 2024</span>
-                            <span class="mx-2">•</span>
-                            <span>Reporter LPM</span>
-                        </div>
-                    </div>
-                </article>
+                @foreach ($posts as $post)
+                    <a href="{{ route('post.show', $post->slug) }}" class="group">
+                        <article
+                            class="bg-white rounded-lg shadow-md overflow-hidden border border-transparent hover:border-primary transition-all duration-300 transform hover:-translate-y-1">
+                            <img src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : '/images/ino.png' }}"
+                                alt="{{ $post->title }}" class="w-full h-48 object-cover" />
+                            <div class="p-6">
+                                <span
+                                    class="text-sm text-accent font-semibold">{{ $post->category->name ?? 'Uncategorized' }}</span>
+                                <h3 class="text-xl font-semibold mt-2 mb-3">
+                                    {{ Str::limit($post->title, 50, '...') }}
+                                </h3>
+                                <p class="text-gray-600 text-sm mb-4">
+                                    {{ Str::limit(strip_tags($post->content), 100, '...') }}
+                                </p>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <span>{{ \Carbon\Carbon::parse($post->published_at)->format('d F Y') }}</span>
+                                    <span class="mx-2">•</span>
+                                    <span>{{ $post->author->name ?? 'Admin' }}</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                @endforeach
             </div>
+
+
+
+
             <div class="text-center mt-12">
-                <a href="#"
+                <a href="{{ route('post.index') }}"
                     class="bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                     Lihat Semua Artikel
                 </a>
@@ -217,49 +196,96 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                    Tim Redaksi
+                    Tim Redaksi LPM Ibnu Rusyd
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Kenali tim redaksi LPM Suara Kampus yang berdedikasi menghadirkan
-                    informasi berkualitas
+                    Kenali struktur pengurus dan tim redaksi LPM Ibnu Rusyd STAIM Magetan Tahun 2025/2026
                 </p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Pemimpin Redaksi"
-                        class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
-                    <h3 class="text-lg font-semibold">Ahmad Rizki</h3>
-                    <p class="text-primary font-medium">Pemimpin Redaksi</p>
-                    <p class="text-gray-600 text-sm mt-2">
-                        Mahasiswa Komunikasi semester 6
-                    </p>
+
+            <!-- Jabatan Utama -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12 text-center">
+                <div>
+                    <h3 class="text-lg font-semibold">Bpk. Luthvi Al Hasyimi</h3>
+                    <p class="text-primary font-medium">Pelindung</p>
                 </div>
-                <div class="text-center">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Wakil Pemimpin Redaksi"
-                        class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
-                    <h3 class="text-lg font-semibold">Sari Indah</h3>
-                    <p class="text-primary font-medium">Wakil Pemimpin Redaksi</p>
-                    <p class="text-gray-600 text-sm mt-2">
-                        Mahasiswa Jurnalistik semester 6
-                    </p>
+                <div>
+                    <h3 class="text-lg font-semibold">Bpk. Nanang Mulyanto</h3>
+                    <p class="text-primary font-medium">Pembimbing</p>
                 </div>
-                <div class="text-center">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Koordinator Liputan"
-                        class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
-                    <h3 class="text-lg font-semibold">Budi Santoso</h3>
-                    <p class="text-primary font-medium">Koordinator Liputan</p>
-                    <p class="text-gray-600 text-sm mt-2">Mahasiswa DKV semester 4</p>
+                <div>
+                    <h3 class="text-lg font-semibold">Miftakhur Rohmah</h3>
+                    <p class="text-primary font-medium">Ketua Umum</p>
                 </div>
-                <div class="text-center">
-                    <img src="/placeholder.svg?height=200&width=200" alt="Editor"
-                        class="w-32 h-32 rounded-full mx-auto mb-4 object-cover" />
-                    <h3 class="text-lg font-semibold">Maya Putri</h3>
-                    <p class="text-primary font-medium">Editor</p>
-                    <p class="text-gray-600 text-sm mt-2">
-                        Mahasiswa Sastra Indonesia semester 4
-                    </p>
+                <div>
+                    <h3 class="text-lg font-semibold">Anis Dawim Musa'adah</h3>
+                    <p class="text-primary font-medium">Sekretaris Umum</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold">Naimatul Hidayah</h3>
+                    <p class="text-primary font-medium">Bendahara Umum</p>
+                </div>
+            </div>
+
+            <!-- Tim Redaksi -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div>
+                    <h3 class="text-lg font-semibold">Pemimpin Redaksi</h3>
+                    <p class="text-gray-600">Abdurrahman Hadi</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Redaktur Pelaksana</h3>
+                    <p class="text-gray-600">• Akbar Muhammad</p>
+                    <p class="text-gray-600">• Wahidatul Istiqomah</p>
+                    <p class="text-gray-600">• Khoirunnisa Putri Ramadhanti</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Redaktur Berita</h3>
+                    <p class="text-gray-600">• Fisfa Firdasari</p>
+                    <p class="text-gray-600">• Nurike Fatma</p>
+                    <p class="text-gray-600">• Khotijah Latifhah N</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Redaktur Foto & Video</h3>
+                    <p class="text-gray-600">• Salsabila Nurhidayu</p>
+                    <p class="text-gray-600">• Nur Fattah</p>
+                    <p class="text-gray-600">• Reyhan Ardhan</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Layouter</h3>
+                    <p class="text-gray-600">• Mamluatul Hidayah</p>
+                    <p class="text-gray-600">• S. Hamidatiz Zahro</p>
+                    <p class="text-gray-600">• Faris Ramadhan</p>
+                    <p class="text-gray-600">• Fathimah As Sholihah</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Reporter</h3>
+                    <p class="text-gray-600">• Kharisma Putri</p>
+                    <p class="text-gray-600">• Dini Melinda</p>
+                    <p class="text-gray-600">• Muhamat Asif</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Percetakan</h3>
+                    <p class="text-gray-600">• Hanif Yulfa</p>
+                    <p class="text-gray-600">• Haliza Putri</p>
+                    <p class="text-gray-600">• Fatkhu Nur Oktaviana</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Inventaris</h3>
+                    <p class="text-gray-600">• Laili Nurizzah</p>
+                    <p class="text-gray-600">• M. Fauzan Abdillah</p>
+                    <p class="text-gray-600">• Melvin Tiana A</p>
                 </div>
             </div>
         </div>
     </section>
+
+
 @endsection

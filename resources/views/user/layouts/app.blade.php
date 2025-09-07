@@ -4,9 +4,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title', 'LPM Ibnu Rusyd')</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Title Dinamis -->
+    <title>@yield('title', 'LPM Ibnu Rusyd - STAIM Magetan')</title>
+
+    <!-- Meta SEO -->
+    <meta name="description" content="@yield('description', 'LPM Ibnu Rusyd, Lembaga Pers Mahasiswa STAIM Magetan, menyajikan berita, artikel, kegiatan kampus, dan informasi terbaru seputar mahasiswa.')">
+    <meta name="keywords" content="@yield('keywords', 'LPM, Ibnu Rusyd, STAIM Magetan, berita kampus, artikel mahasiswa, kegiatan mahasiswa, jurnal kampus')">
+    <meta name="author" content="LPM Ibnu Rusyd, STAIM Magetan">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="@yield('title', 'LPM Ibnu Rusyd - STAIM Magetan')" />
+    <meta property="og:description" content="@yield('description', 'LPM Ibnu Rusyd, Lembaga Pers Mahasiswa STAIM Magetan, menyajikan berita, artikel, kegiatan kampus, dan informasi terbaru seputar mahasiswa.')" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="@yield('og_image', asset('images/logo.jpeg'))" />
+    <meta property="og:site_name" content="LPM Ibnu Rusyd - STAIM Magetan" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@yield('title', 'LPM Ibnu Rusyd - STAIM Magetan')" />
+    <meta name="twitter:description" content="@yield('description', 'LPM Ibnu Rusyd, Lembaga Pers Mahasiswa STAIM Magetan, menyajikan berita, artikel, kegiatan kampus, dan informasi terbaru seputar mahasiswa.')" />
+    <meta name="twitter:image" content="@yield('og_image', asset('images/logo.jpeg'))" />
+
+    <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/logo.jpeg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+
+    <!-- Tailwind + Vite -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <style>
         #back-to-top {
             z-index: 100;
@@ -14,17 +45,17 @@
     </style>
 </head>
 
+
 <body class="bg-white text-gray-900">
     @include('user.layouts.navbar')
     @yield('content')
     @include('user.layouts.footer')
-    <button id="back-to-top"
-        class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors opacity-0 invisible z-100">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-        </svg>
-    </button>
+   <button id="back-to-top"
+    class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-blue-700 transition-colors opacity-0 invisible z-50 cursor-pointer">
+    <i class="fas fa-arrow-up text-lg"></i>
+</button>
+
+
     <script>
         // Back to Top Button
         const backToTopButton = document.getElementById("back-to-top");

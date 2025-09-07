@@ -7,6 +7,7 @@
     <title>@yield('title', 'LPM Title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('images/logo.jpeg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 
 <body class="bg-gray-50">

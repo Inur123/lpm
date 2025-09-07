@@ -30,6 +30,10 @@
            opacity: 1;
            visibility: visible;
        }
+          .nav-active {
+        color: #2563eb; /* Sesuaikan warna sesuai tema, contoh: biru */
+        font-weight: bold;
+    }
    </style>
    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +44,7 @@
                        <img src="https://anisdawim.my.id/images/logo.jpeg" alt="Logo LPM Suara Kampus"
                            class="h-10 w-10 object-contain rounded-full" />
                        <!-- Judul -->
-                       <h1 class="text-2xl font-bold text-primary">LPM Ibnu Rusyd</h1>
+                       <h1 class="text-2xl font-bold text-secondary">LPM Ibnu Rusyd</h1>
                    </a>
                </div>
                <div class="hidden md:block">
@@ -55,8 +59,7 @@
                            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Artikel</a>
                        <a href="#team"
                            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Tim</a>
-                       <a href="#contact"
-                           class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Kontak</a>
+
                    </div>
                </div>
                <div class="md:hidden">
@@ -92,59 +95,103 @@
                        class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Artikel</a>
                    <a href="#team"
                        class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Tim</a>
-                   <a href="#contact"
-                       class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Kontak</a>
+
                </div>
            </div>
        </div>
        <!-- Overlay -->
        <div id="menu-overlay" class="menu-overlay"></div>
    </nav>
-   <script>
-       // Mobile menu toggle
-       const mobileMenuButton = document.getElementById("mobile-menu-button");
-       const closeMenuButton = document.getElementById("close-menu-button");
-       const mobileMenu = document.getElementById("mobile-menu");
-       const menuOverlay = document.getElementById("menu-overlay");
+  <script>
+    // ===== Mobile Menu Toggle =====
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const closeMenuButton = document.getElementById("close-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuOverlay = document.getElementById("menu-overlay");
 
-       function openMenu() {
-           mobileMenu.classList.add("menu-open");
-           menuOverlay.classList.add("active");
-           document.body.style.overflow = "hidden";
-       }
+    function openMenu() {
+        mobileMenu.classList.add("menu-open");
+        menuOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
 
-       function closeMenu() {
-           mobileMenu.classList.remove("menu-open");
-           menuOverlay.classList.remove("active");
-           document.body.style.overflow = "";
-       }
+    function closeMenu() {
+        mobileMenu.classList.remove("menu-open");
+        menuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+    }
 
-       mobileMenuButton.addEventListener("click", openMenu);
-       closeMenuButton.addEventListener("click", closeMenu);
-       menuOverlay.addEventListener("click", closeMenu);
+    mobileMenuButton.addEventListener("click", openMenu);
+    closeMenuButton.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", closeMenu);
 
-       // Smooth scrolling for navigation links
-       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-           anchor.addEventListener("click", function(e) {
-               e.preventDefault();
-               const target = document.querySelector(this.getAttribute("href"));
-               if (target) {
-                   target.scrollIntoView({
-                       behavior: "smooth",
-                       block: "start",
-                   });
-               }
-               closeMenu();
-           });
-       });
+    // ===== Navigation Links & Smooth Scroll =====
+    const navLinks = document.querySelectorAll('a[href^="#"], a[href^="/"]');
 
-       // Add scroll effect to navigation
-       window.addEventListener("scroll", () => {
-           const nav = document.querySelector("nav");
-           if (window.scrollY > 100) {
-               nav.classList.add("bg-white/95", "backdrop-blur-sm");
-           } else {
-               nav.classList.remove("bg-white/95", "backdrop-blur-sm");
-           }
-       });
-   </script>
+    navLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            const href = this.getAttribute("href");
+            const path = window.location.pathname;
+
+            // Jika link anchor (#) tapi berada di halaman selain homepage, redirect dulu
+            if (href.startsWith("#") && path !== "/") {
+                e.preventDefault();
+                window.location.href = "/" + href;
+                return;
+            }
+
+            // Smooth scroll untuk internal anchor
+            if (href.startsWith("#") && path === "/") {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+
+            // Hapus active dari semua link
+            navLinks.forEach(a => a.classList.remove('nav-active'));
+            // Tambahkan active ke link yang diklik
+            this.classList.add('nav-active');
+
+            closeMenu();
+        });
+    });
+
+    // ===== Set Active Nav Berdasarkan Scroll & URL =====
+    function setActiveNav() {
+        const path = window.location.pathname;
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+
+            // Artikel selalu aktif saat berada di halaman /artikel/...
+            if (path.startsWith("/artikel") && href.includes("#articles")) {
+                link.classList.add("nav-active");
+            }
+            // Internal anchor di homepage
+            else if (href.startsWith("#") && path === "/") {
+                const target = document.querySelector(href);
+                if (target) {
+                    const sectionTop = target.offsetTop - 100;
+                    const sectionBottom = sectionTop + target.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                        link.classList.add("nav-active");
+                    } else {
+                        link.classList.remove("nav-active");
+                    }
+                }
+            }
+            // Hapus active jika link tidak sesuai kondisi
+            else if (!path.startsWith("/artikel")) {
+                link.classList.remove("nav-active");
+            }
+        });
+    }
+
+    // ===== Event Listener =====
+    window.addEventListener("load", setActiveNav);
+    window.addEventListener("scroll", setActiveNav);
+</script>
+
+

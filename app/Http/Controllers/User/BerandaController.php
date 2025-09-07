@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BerandaController extends Controller
 {
-    public function index()
+     public function index()
     {
-        return view('user.beranda');
+        // Ambil 6 post terbaru yang statusnya 'published'
+       $posts = Post::where('status', 'active')
+             ->latest('published_at')
+             ->take(6)
+             ->get();
+
+        return view('user.beranda', compact('posts'));
     }
 }

@@ -59,7 +59,11 @@
 
                 <!-- Thumbnail -->
                 <div>
-                    <label for="thumbnail" class="block text-sm font-medium text-gray-700 mb-2">Thumbnail</label>
+                    <label for="thumbnail"
+                        class="block text-sm font-medium text-gray-700 mb-2 flex items-center justify-between">
+                        Thumbnail
+                        <span class="text-xs text-gray-500">Maksimal 5 MB</span>
+                    </label>
                     <input type="file" name="thumbnail" id="thumbnail" accept="image/*"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
 
@@ -73,12 +77,16 @@
 
                 <!-- Additional Images -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Gambar Tambahan</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center justify-between">
+                        Gambar Tambahan
+                        <span class="text-xs text-gray-500">Maksimal 5 MB per gambar</span>
+                    </label>
+
 
                     <div id="image-inputs" class="space-y-4"></div>
 
                     <button type="button" id="add-image-input"
-                        class="px-3 py-2 bg-blue-500 text-white rounded-md text-sm">
+                        class="px-3 py-2 bg-blue-500 text-white rounded-md text-sm cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                         + Tambah Gambar
                     </button>
 
@@ -156,7 +164,7 @@
                 <input type="file" name="images[]" accept="image/*"
                     class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm image-input">
                 <button type="button"
-                    class="remove-input px-3 py-2 bg-red-500 text-white rounded-md text-xs">
+                    class="remove-input px-3 py-2 bg-red-500 text-white rounded-md text-xs cursor-pointer hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
                     Hapus
                 </button>
             </div>

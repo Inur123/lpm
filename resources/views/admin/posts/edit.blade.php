@@ -61,30 +61,36 @@
                 </div>
 
                 <!-- Thumbnail -->
-              <div>
-    <label for="thumbnail" class="block text-sm font-medium text-gray-700 mb-2">Thumbnail</label>
-    <input type="file" name="thumbnail" id="thumbnail" accept="image/*"
-        class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
+                <div>
+                    <label for="thumbnail"
+                        class="block text-sm font-medium text-gray-700 mb-2 flex items-center justify-between">
+                        Thumbnail
+                        <span class="text-xs text-gray-500">Maksimal 5 MB</span>
+                    </label>
+                    <input type="file" name="thumbnail" id="thumbnail" accept="image/*"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
 
-    <!-- Thumbnail lama -->
-    @if ($post->thumbnail)
-        <div class="mt-2">
-            <p class="text-xs text-gray-500 mb-1">Thumbnail saat ini:</p>
-            <img src="{{ asset('storage/' . $post->thumbnail) }}" class="h-32 rounded-md border" />
-        </div>
-    @endif
+                    <!-- Thumbnail lama -->
+                    @if ($post->thumbnail)
+                        <div class="mt-2">
+                            <p class="text-xs text-gray-500 mb-1">Thumbnail saat ini:</p>
+                            <img src="{{ asset('storage/' . $post->thumbnail) }}" class="h-32 rounded-md " />
+                        </div>
+                    @endif
 
-    <!-- Preview thumbnail baru -->
-    <div id="thumbnail-preview" class="mt-2 hidden">
-        <p class="text-xs text-gray-500 mb-1">Thumbnail baru:</p>
-        <img id="thumbnail-img" class="h-32 rounded-md border" />
-    </div>
-</div>
+                    <!-- Preview thumbnail baru -->
+                    <div id="thumbnail-preview" class="mt-2 hidden">
+                        <p class="text-xs text-gray-500 mb-1">Thumbnail baru:</p>
+                        <img id="thumbnail-img" class="h-32 rounded-md border" />
+                    </div>
+                </div>
 
                 <!-- Additional Images -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Gambar Tambahan</label>
-
+                    <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center justify-between">
+                        Gambar Tambahan
+                        <span class="text-xs text-gray-500">Maksimal 5 MB per gambar</span>
+                    </label>
                     <!-- Gambar lama -->
                     @if ($post->images->count())
                         <div class="grid grid-cols-3 gap-2 mb-3" id="old-images">
@@ -106,7 +112,8 @@
                     <!-- Input gambar baru -->
                     <div id="image-inputs" class="space-y-4"></div>
 
-                    <button type="button" id="add-image-input" class="px-3 py-2 bg-blue-500 text-white rounded-md text-sm">
+                    <button type="button" id="add-image-input"
+                        class="px-3 py-2 bg-blue-500 text-white rounded-md text-sm cursor-pointer hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                         + Tambah Gambar
                     </button>
                 </div>
@@ -134,8 +141,10 @@
 
             <!-- Action Buttons -->
             <div class="flex justify-end space-x-3 pt-6 border-t border-gray-200">
-                <a href="{{ route('posts.index') }}" class="px-4 py-2 border rounded-md text-sm">Batal</a>
-                <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md text-sm">Update Post</button>
+                <a href="{{ route('posts.index') }}"
+                    class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">Batal</a>
+                <button type="submit" class="px-4 py-2 bg-primary text-white rounded-md text-sm cursor-pointer">Update
+                    Post</button>
             </div>
         </form>
     </div>
@@ -174,25 +183,25 @@
         }
     </script>
     <!-- Script Thumbnail Preview -->
-   <script>
-    document.getElementById('thumbnail').addEventListener('change', function(event) {
-        const previewContainer = document.getElementById('thumbnail-preview');
-        const previewImage = document.getElementById('thumbnail-img');
-        const file = event.target.files[0];
+    <script>
+        document.getElementById('thumbnail').addEventListener('change', function(event) {
+            const previewContainer = document.getElementById('thumbnail-preview');
+            const previewImage = document.getElementById('thumbnail-img');
+            const file = event.target.files[0];
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewImage.src = e.target.result;
-                previewContainer.classList.remove('hidden'); // tampilkan
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewContainer.classList.remove('hidden'); // tampilkan
+                }
+                reader.readAsDataURL(file);
+            } else {
+                previewContainer.classList.add('hidden'); // sembunyikan kalau batal pilih
+                previewImage.src = '';
             }
-            reader.readAsDataURL(file);
-        } else {
-            previewContainer.classList.add('hidden'); // sembunyikan kalau batal pilih
-            previewImage.src = '';
-        }
-    });
-</script>
+        });
+    </script>
 
     <!-- Script Tambah Gambar Baru -->
     <script>
@@ -205,7 +214,7 @@
                     <input type="file" name="images[]" accept="image/*"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm image-input">
                     <button type="button"
-                        class="remove-input px-3 py-2 bg-red-500 text-white rounded-md text-xs">
+                        class="remove-input px-3 py-2 bg-red-500 text-white rounded-md text-xs cursor-pointer hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
                         Hapus
                     </button>
                 </div>

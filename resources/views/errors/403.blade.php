@@ -27,7 +27,7 @@
     <section class="pt-16 min-h-screen bg-gradient-to-br from-orange-600 to-red-600 text-white flex items-center">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
             <div class="mb-8">
-                <h1 class="text-9xl md:text-[12rem] font-bold text-orange-300 opacity-20">403</h1>
+                <h1 class="text-9xl md:text-[12rem] font-bold text-orange-500 opacity-50">403</h1>
             </div>
             <div class="mb-8">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">Akses Ditolak</h2>

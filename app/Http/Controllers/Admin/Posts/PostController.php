@@ -32,8 +32,8 @@ class PostController extends Controller
             'title' => 'required|unique:posts,title',
             'category_id' => 'required|exists:categories,id',
             'content' => 'required',
-            'thumbnail' => 'nullable|image',
-            'images.*' => 'nullable|image', // multiple images
+            'thumbnail' => 'nullable|image|max:5120', // 5MB
+            'images.*' => 'nullable|image|max:5120', // 5MB per file
             'tags' => 'nullable|string', // tag input berupa string
         ]);
 
@@ -91,8 +91,8 @@ class PostController extends Controller
             'title' => 'required|unique:posts,title,' . $post->id,
             'category_id' => 'required|exists:categories,id',
             'content' => 'required',
-            'thumbnail' => 'nullable|image',
-            'images.*' => 'nullable|image',
+            'thumbnail' => 'nullable|image|max:5120', // 5MB
+            'images.*' => 'nullable|image|max:5120', // 5MB per file
             'tags' => 'nullable|string',
         ]);
 

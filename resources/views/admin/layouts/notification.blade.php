@@ -46,15 +46,10 @@
 
 <div class="notification-container space-y-3">
     @if ($errors->any())
-        <div
-            class="notification bg-red-50 text-red-700 border-l-4 border-red-500 flex items-start justify-between p-4 rounded">
+        <div class="notification bg-red-50 text-red-700 border-l-4 border-red-500 flex items-start justify-between p-4 rounded">
             <div class="flex gap-2">
-                <!-- Heroicon: Exclamation Circle -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-5 h-5 text-red-600 mt-0.5">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 9v2.25m0 4.5h.008v.008H12v-.008zm0-10.5a9 9 0 110 18 9 9 0 010-18z" />
-                </svg>
+                <!-- FA: Exclamation Circle -->
+                <i class="fas fa-exclamation-circle text-red-600 mt-0.5"></i>
                 <div>
                     <p class="font-medium">Terjadi kesalahan!</p>
                     <ul class="mt-1 list-disc list-inside text-sm">
@@ -65,34 +60,23 @@
                 </div>
             </div>
             <button class="notification-close text-red-600 hover:text-red-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <i class="fas fa-times"></i>
             </button>
         </div>
     @endif
 
     @if (session('success'))
-        <div
-            class="notification bg-green-50 text-green-700 border-l-4 border-green-500 flex items-start justify-between p-4 rounded">
+        <div class="notification bg-green-50 text-green-700 border-l-4 border-green-500 flex items-start justify-between p-4 rounded">
             <div class="flex gap-2">
-                <!-- Heroicon: Check Circle -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-5 h-5 text-green-600 mt-0.5">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 12.75l2.25 2.25L15 9.75m6.75 2.25a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <!-- FA: Check Circle -->
+                <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
                 <div>
                     <p class="font-medium">Sukses!</p>
                     <p class="mt-1 text-sm">{{ session('success') }}</p>
                 </div>
             </div>
             <button class="notification-close text-green-600 hover:text-green-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <i class="fas fa-times"></i>
             </button>
         </div>
     @endif
